@@ -45,14 +45,30 @@ with open(csv_bank, newline='') as csvfile:
 
     for row in csv_reader:
         
-        net_profit= (int(row[1]+1) + int(row[1])
+        changes_profit= (int(row[1]+1) + int(row[1])
     
 # The greatest increase in profits (date and amount) over the entire period
 
+    for row in csv_reader:
+        increase= (int(row[1]+1) - int(row[1])
+        
+        great_increase=0
+        
+        if increase > great_increase:
+            great_increase = great_increase + increase
+        print(f'{greatest_increase}, {row[0]}')
+        print(f'{greatest_increase}, {row[1]}')
 
 # The greatest decrease in losses (date and amount) over the entire period
-# 
-# 
+# for row in csv_reader:
+        decrease= (int(row[1]+1) - int(row[1])
+        
+        great_increase=min(decrease)
+        
+        if decrease < great_decrease:
+            great_increase = great_increase + decrease
+        print(f'{greatest_increase}, {row[0]}')
+        print(f'{greatest_increase}, {row[1]}')
 # 
 # 
 # The net total amount of "Profit/Losses" over the entire period
@@ -76,8 +92,7 @@ output_path = os.path.join("PyBank","Resources","bank_solution.csv")
  # 4. Write the first row (columns, headers)
 csvwriter.writerow("Financial Analysis ")
 
-csvwriter.writerow(f'Total Months: {total_monmths})
-
-
-  
-  
+csvwriter.writerow(f'Total Months: {total_monmths}')
+csvwriter.writerow(f'Total Months: {net_profit}')
+csvwriter.writerow(f'Total Months: {changes_profit}')
+  csvwriter.writerow(f'Total Months: {total_monmths}') 
