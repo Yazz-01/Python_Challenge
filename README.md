@@ -1,18 +1,18 @@
-# Python_Challenge
+In this challenge, you are tasked with helping a small, rural town modernize its vote counting process.
 
-our task is to create a Python script that analyzes the records to calculate each of the following:
-
-
-1. The total number of months included in the dataset
+You will be given a set of poll data called election_data.csv. The dataset is composed of three columns: Voter ID, County, and Candidate. Your task is to create a Python script that analyzes the votes and calculates each of the following:
 
 
-The net total amount of "Profit/Losses" over the entire period
+The total number of votes cast
 
 
-Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
+A complete list of candidates who received votes
 
 
-The greatest increase in profits (date and amount) over the entire period
+The percentage of votes each candidate won
 
 
-The greatest decrease in losses (date and amount) over the entire period
+The total number of votes each candidate won
+
+
+The winner of the election based on popular vote.

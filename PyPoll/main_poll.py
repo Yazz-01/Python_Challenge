@@ -9,17 +9,18 @@ csv_poll = os.path.join("PyPoll","Resources","election_data.csv")
 with open(csv_poll, newline='') as csvfile:
  
  # CSV reader specifies delimiter and variables that holds content
-    csv_reader = csv.reader(csvfile, delimiter=",")
-    
+    file_csv = csv.reader(csvfile, delimiter=",")
+    print(file_csv)
 # Read the Heeader row first  (skip this step if there is no header)
-    header = next(csv_reader)
-    
+    header = next(file_csv)
     print(f'CSV Header: {header}')
     
-     
     
 # The total number of votes cast
-
+total_votes=0
+for row in file_csv:
+    total_votes =int(row[0])+ int(row[0])+1
+    print(row)
 
 # A complete list of candidates who received votes
 
