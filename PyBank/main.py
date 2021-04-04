@@ -38,16 +38,16 @@ with open(csv_bank, newline='') as csvfile:
         
 # Calculate the changes in "Profit/Losses" over the entire period, then 
 # # find the average of those changes
-        
+        date_changes= row[0]
         if count==0:
             changes_profit=0
             current= int(row[1])
             count=count+1
         else:
             changes_profit= int(row[1])-current
-            changes.append(changes_profit) 
+            changes.append(changes_profit)
             current= int(row[1])
-            
+            #changes=[date_changes,int(changes_profit)]
 # The Average change
             average_change= sum(changes)/len(changes)
 # The greatest increase in profits (date and amount) over the entire period

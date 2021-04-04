@@ -13,3 +13,5 @@
 #     print(a[index])
 #     print(a[index][1])
 print(-196785+867884)
+
+print(row[csv_reader.index(0)])
