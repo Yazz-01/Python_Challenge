@@ -65,9 +65,12 @@ with open(csv_bank, newline='') as csvfile:
     print(f'Greatest Decrease in Profits: (${great_decrease_prof})') 
   
  
-
-
-# csvwriter.writerow(f'Total Months: {total_monmths}')
-# csvwriter.writerow(f'Total Months: {net_profit}')
-# csvwriter.writerow(f'Total Months: {changes_profit}')
-# csvwriter.writerow(f'Total Months: {total_monmths}') 
+# Save the output file path
+output_file=os.path.join("output.csv")
+# Initialize csv.writer
+csvwriter=csv.writer(csvfile,delimiter=',')
+#Write th first row (column headers)
+# csvwriter.writerow([Total Months: {total_monmths}])
+# csvwriter.writerow([Total Months: {net_profit}])
+# csvwriter.writerow([Total Months: {changes_profit}])
+# csvwriter.writerow([Total Months: {total_monmths}}) 
