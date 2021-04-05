@@ -8,24 +8,39 @@ csv_poll = os.path.join("PyPoll","Resources","election_data.csv")
 # Open the CSV
 with open(csv_poll, 'r') as text:
     print(text)
+# CSV reader specifies delimiter and variables that holds content
+    csvreader = csv.reader(text, delimiter=",")
+    
+# Read the Heeader row first  (skip this step if there is no header)
+    header = next(text)
+    print(f'CSV Header: {header}') 
     
 # Store all of the text inside a variable called "lines"
     lines = text.read()
     
 # Variables
-    votes_count=[]
-    candidates_count=[]
-    votes_candidates={}
-    total_votes=0
-# Looping through the file
-    for row in lines:
+    num_candidates = str(lines[3])
+    num_votes = int(lines[0])
+    
+    
+    
+# The total number of votes cast        
+       #count = count + int(row[2])
+    print(candidates)
+        #(candidates)
+# A complete list of candidates who received votes
         
-        votes_count.append(row[0])  
-        candidates_count.append(row[2]
-        votes_candidates = candidates_count                     
+        #votes_candidates['Candidates'] = row[2]
+        
+        #lst_candidates.append.(int(row[])row[2])       
+        
+        #candidates_count["Candidate"]= int(lines)+1
+       # votes_candidates = candidates_count                     
         #votes_candidates[canditates_count]=votes_count
         
-        print(f'{votes_candidates}')
+       # print(f'{candidates_count}')
+        
+        #print(f'{votes_candidates}')
         
         #print(f'Total Votes {total_votes}')
         #print(f'{lst_candidates}')
@@ -33,14 +48,12 @@ with open(csv_poll, 'r') as text:
         
         #lst_candidates= 
         
-# The total number of votes cast
 
-# A complete list of candidates who received votes
-        #count=sum(int(row[2]))
-        
-        #lst_candidates.append.(int(row[])row[2])
+
+
 
 # The percentage of votes each candidate won
+#percent= round(int(row[])/int(row[]),2)
 
 
 # The total number of votes each candidate won

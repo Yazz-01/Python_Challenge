@@ -16,3 +16,10 @@ The total number of votes each candidate won
 
 
 The winner of the election based on popular vote.
+
+Run the loop:
+    every time a new name occurs(condition):
+        append that name to the dictionary with 0 votes a[name] = 0
+    a[name] add by 1 vote
+    
+    
