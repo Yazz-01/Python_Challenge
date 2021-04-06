@@ -2,6 +2,7 @@ import os
 import csv
 import statistics
 from decimal import getcontext, Decimal
+import operator
 
 
 # Set path for reading a file
@@ -44,12 +45,14 @@ with open(csv_poll, 'r') as csvfile:
         
         perctg_votes=[(k,round(v/total_votes*100,3)) for k,v in cand_votes_counts.items()]
         
-        
+# Get the winner from the election
+        winner= max(cand_votes_counts, key=cand_votes_counts.get)
         
     print(f'{total_votes} ')     
     print(f'{candidates}')
     print(f'{cand_votes_counts}')
     print(f'{perctg_votes}')
+    print(f'{winner}')
 
 
 
