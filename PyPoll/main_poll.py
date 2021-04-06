@@ -19,41 +19,25 @@ with open(csv_poll, 'r') as text:
     lines = text.read()
     
 # Variables
-    num_candidates = str(lines[3])
+
+    name_candidates = str(lines[2])
     num_votes = int(lines[0])
     
-    
-    
-# The total number of votes cast        
-       #count = count + int(row[2])
-    print(candidates)
-        #(candidates)
+# The total number of votes of candidates
+    for row in lines:
+        
+        candidates=lines.count('Khan')
+
+    #total_votes=[vote for vote in num_votes]
+    #print(f'{total_votes}')
+
+    print(f'{candidates}')
 # A complete list of candidates who received votes
         
-        #votes_candidates['Candidates'] = row[2]
-        
-        #lst_candidates.append.(int(row[])row[2])       
-        
-        #candidates_count["Candidate"]= int(lines)+1
-       # votes_candidates = candidates_count                     
-        #votes_candidates[canditates_count]=votes_count
-        
-       # print(f'{candidates_count}')
-        
-        #print(f'{votes_candidates}')
-        
-        #print(f'Total Votes {total_votes}')
-        #print(f'{lst_candidates}')
-        #total_votes = total_votes+ int(row)+1
-        
-        #lst_candidates= 
-        
-
-
-
 
 # The percentage of votes each candidate won
-#percent= round(int(row[])/int(row[]),2)
+
+#percent_votes= round(int(row[])/int(row[]),2)
 
 
 # The total number of votes each candidate won

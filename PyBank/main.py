@@ -51,7 +51,9 @@ with open(csv_bank, newline='') as csvfile:
 # The Average change
             average_change= sum(changes)/len(changes)
 # The greatest increase in profits (date and amount) over the entire period
+
             great_increase_prof= max(changes)
+            
             #great_increase_date= great_increase_prof.index(0)
 # The greatest decrease in losses (date and amount) over the entire period 
             great_decrease_prof= min(changes)
@@ -61,7 +63,7 @@ with open(csv_bank, newline='') as csvfile:
     print(f'Total Months: {total_months}') 
     print(f"Total: {net_profit} ")
     print(f"Average  Change: {average_change} ")
-    print(f'Greatest Increase in Profits: (${great_increase_prof})') 
+    print(f'Greatest Increase in Profits: (${great_increase_prof}) and Date: {great_date}') 
     print(f'Greatest Decrease in Profits: (${great_decrease_prof})') 
   
  
