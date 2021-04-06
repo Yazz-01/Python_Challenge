@@ -1,6 +1,8 @@
 import os
 import csv
 import statistics
+from decimal import getcontext, Decimal
+
 
 # Set path for reading a file
 csv_poll = os.path.join("PyPoll","Resources","election_data.csv")
@@ -17,39 +19,37 @@ with open(csv_poll, 'r') as csvfile:
     
 
 # Variables
-
-    candidates = set()
+    
     total_votes=0
-    cand_votes_counts=[]
+    candidates=set()
+    cand_votes_counts={}
+    perctg_votes=[]
 # Looping through the file    
     for row in csv_poll:
-        candidate= row[2]
         vote= int(row[0])
-        found= False
-# The total number of votes of candidates  
-        total_votes=total_votes+vote
+        candidate= row[2]
+        
+# The total number of votes of candidates         
+        total_votes=total_votes+ 1
         
 # A complete list of candidates who received votes 
-        candidates.add(candidate)       
-
-# The percentage of votes each candidate won
-        for entry in cand_votes_counts:
-            if entry[0]==candidate:
-                entry[1]=entry[1]+1
-                found=True
-                
-        if not found:
-           cand_votes_counts.append([candidate,1])  
-
-    
-    #total_votes=[vote for vote in num_votes]
-    
-    #print(f'{total_votes}')
-
-    print(f'{candidates}')
-    print(f'{total_votes}')
-    print(f'{cand_votes_counts}')
+        candidates.add(candidate)  
+             
+# The total number of votes per candidate      
+ 
+        cand_votes_counts[candidate]=cand_votes_counts.get(candidate,0)+ 1
         
+# The percentage of votes each candidate won 
+# Set precision
+        
+        perctg_votes=[(k,round(v/total_votes*100,3)) for k,v in cand_votes_counts.items()]
+        
+        
+        
+    print(f'{total_votes} ')     
+    print(f'{candidates}')
+    print(f'{cand_votes_counts}')
+    print(f'{perctg_votes}')
 
 
 
