@@ -43,7 +43,7 @@ with open(csv_poll, 'r') as csvfile:
 # The percentage of votes each candidate won 
 # Set precision
         
-        perctg_votes=[(k,round(v/total_votes*100,3)) for k,v in cand_votes_counts.items()]
+        perctg_votes=[(k,round(v/total_votes*100,4)) for k,v in cand_votes_counts.items()]
         
 # Get the winner from the election
         winner= max(cand_votes_counts, key=cand_votes_counts.get)
@@ -57,13 +57,16 @@ with open(csv_poll, 'r') as csvfile:
 
 
 # # Open the file using "write" mode. Specify the variable to hold the contents
-with open("new.csv", 'w', newline='') as csvfile:
+    output_file = open(os.path.join("Election Analysis","pypoll_election","new.csv", 'w', newline='') as csvfile:
 
 #     # Initialize csv.writer
-    csvwriter = csv.writer(csvfile, delimiter=',')
-
+    
 #     # Write the first row (column headers)
-    csvwriter.writerow(['total_votese', 'candidates', 'SSN'])
-
+    output_file.write(['Election Results'])
+    output_file.write(['-----------------------'])
 #     # Write the second row
-    csvwriter.writerow(['Caleb', 'Frost', '505-80-2901'])
+    output_file.write(['Total Votes: {total_votes}'])
+    output_file.write(['Total Votes: {candidates}'])
+    output_file.write(['Total Votes per candidate: %{cand_votes_counts}'])
+    output_file.write(['Winner: {winner}'])
+    

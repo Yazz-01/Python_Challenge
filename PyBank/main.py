@@ -50,38 +50,31 @@ with open(csv_bank, newline='') as csvfile:
             current= int(row[1])
             
 # The Average change over the period
-            average_change= sum(changes)/len(changes)
+            average_change= round(sum(changes)/len(changes),2)
             
 # The greatest increase in profits (date and amount) over the entire period
-            great_increase_prof= max(changes)
             
-            
-            if great_increase_prof < changes:
-                changes=great_increase_prof
+            if changes_profit > great_increase_prof:
+                great_increase_prof=changes_profit
                 great_increase_date= row[0]
+                
 # The greatest decrease in losses (date and amount) over the entire period 
-            if great_decrease_prof > cnahges:
-                changes = great_decrease_prof
+            if  changes_profit < great_decrease_prof :
+                great_decrease_prof =changes_profit
                 great_decrease_date= row[0]
-            
+                
+output_path=os.path.join("output", "new.csv")   
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w', newline='') as csvfile:
 
-            #great_decrease_prof= min(changes)
-            #great_decrease_date= great_decrease_prof.index(0)
-                     
-    
-    print(f'Total Months: {total_months}') 
-    print(f"Total: {net_profit} ")
-    print(f"Average  Change: {average_change} ")
-    print(f'Greatest Increase in Profits: (${great_increase_prof}) and Date: {great_increase_date}') 
-    print(f'Greatest Decrease in Profits: (${great_decrease_prof})and Date: {great_decrease_date)} '
-  
- 
-# Save the output file path
-#output_file=os.path.join("output.csv")
-# Initialize csv.writer
-#csvwriter=csv.writer(csvfile,delimiter=',')
-#Write th first row (column headers)
-# csvwriter.writerow([Total Months: {total_monmths}])
-# csvwriter.writerow([Total Months: {net_profit}])
-# csvwriter.writerow([Total Months: {changes_profit}])
-# csvwriter.writerow([Total Months: {total_monmths}}) 
+# #     # Initialize csv.writer
+     csvwriter = csv.writer(csvfile, delimiter=',')
+
+# #     # Write the first row (column headers)
+     csvwriter.writerow(['Financial Analysis'])
+     csvwriter.writerow(['---------------------------'])
+     csvwriter.writerow(['Total Months: {total_monmths}'])
+     csvwriter.writerow(['Total: ${net_profit}'])
+     csvwriter.writerow(['Average Change: ${changes_profit}'])
+     csvwriter.writerow(['Greatest Increase in Profits: {great_increase_date} (${great_increase_prof})'])
+     csvwriter.writerow(['Greatest Decrease in Profits: {great_decrease_date} (${great_decrease_prof})'])
