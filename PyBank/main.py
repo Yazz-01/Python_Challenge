@@ -26,19 +26,20 @@ with open(csv_bank, newline='') as csvfile:
     changes = []
     average_change=0
     great_increase_prof=0
-    
     great_decrease_prof=0
+
+# Looping through the document
     for row in csv_reader:
-        #print(row[1])
+       
+# Total number of months of the entire period      
         total_months=total_months + 1
     
 # The net total amount of "Profit/Losses" over the entire period
     
         net_profit = net_profit + int(row[1])
         
-# Calculate the changes in "Profit/Losses" over the entire period, then 
-# # find the average of those changes
-        date_changes= row[0]
+# Calculate the changes in "Profit/Losses" over the entire period
+
         if count==0:
             changes_profit=0
             current= int(row[1])
@@ -47,30 +48,38 @@ with open(csv_bank, newline='') as csvfile:
             changes_profit= int(row[1])-current
             changes.append(changes_profit)
             current= int(row[1])
-            #changes=[date_changes,int(changes_profit)]
-# The Average change
+            
+# The Average change over the period
             average_change= sum(changes)/len(changes)
+            
 # The greatest increase in profits (date and amount) over the entire period
-
             great_increase_prof= max(changes)
             
-            #great_increase_date= great_increase_prof.index(0)
+            
+            if great_increase_prof < changes:
+                changes=great_increase_prof
+                great_increase_date= row[0]
 # The greatest decrease in losses (date and amount) over the entire period 
-            great_decrease_prof= min(changes)
+            if great_decrease_prof > cnahges:
+                changes = great_decrease_prof
+                great_decrease_date= row[0]
+            
+
+            #great_decrease_prof= min(changes)
             #great_decrease_date= great_decrease_prof.index(0)
                      
     
     print(f'Total Months: {total_months}') 
     print(f"Total: {net_profit} ")
     print(f"Average  Change: {average_change} ")
-    print(f'Greatest Increase in Profits: (${great_increase_prof}) and Date: {great_date}') 
-    print(f'Greatest Decrease in Profits: (${great_decrease_prof})') 
+    print(f'Greatest Increase in Profits: (${great_increase_prof}) and Date: {great_increase_date}') 
+    print(f'Greatest Decrease in Profits: (${great_decrease_prof})and Date: {great_decrease_date)} '
   
  
 # Save the output file path
-output_file=os.path.join("output.csv")
+#output_file=os.path.join("output.csv")
 # Initialize csv.writer
-csvwriter=csv.writer(csvfile,delimiter=',')
+#csvwriter=csv.writer(csvfile,delimiter=',')
 #Write th first row (column headers)
 # csvwriter.writerow([Total Months: {total_monmths}])
 # csvwriter.writerow([Total Months: {net_profit}])

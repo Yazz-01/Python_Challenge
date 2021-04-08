@@ -56,30 +56,14 @@ with open(csv_poll, 'r') as csvfile:
 
 
 
-#percent_votes= round(int(row[])/int(row[]),2)
-
-
-# The total number of votes each candidate won
-
-
-# The winner of the election based on popular vote.
-
-    
-    
-
-
-
-# # Specify the file to write to
-# output_path = os.path.join("..", "output", "new.csv")
-
 # # Open the file using "write" mode. Specify the variable to hold the contents
-# with open(output_path, 'w', newline='') as csvfile:
+with open("new.csv", 'w', newline='') as csvfile:
 
 #     # Initialize csv.writer
-#     csvwriter = csv.writer(csvfile, delimiter=',')
+    csvwriter = csv.writer(csvfile, delimiter=',')
 
 #     # Write the first row (column headers)
-#     csvwriter.writerow(['First Name', 'Last Name', 'SSN'])
+    csvwriter.writerow(['total_votese', 'candidates', 'SSN'])
 
 #     # Write the second row
-#     csvwriter.writerow(['Caleb', 'Frost', '505-80-2901'])
+    csvwriter.writerow(['Caleb', 'Frost', '505-80-2901'])
