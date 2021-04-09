@@ -1,0 +1,5 @@
+Total Votes: 3521001
+Total Votes: {total_votes}
+Total Votes: {'Correy', "O'Tooley", 'Li', 'Khan'}
+Total Votes per candidate: %{'Khan': 2218231, 'Correy': 704200, 'Li': 492940, "O'Tooley": 105630}
+Winner: Khan

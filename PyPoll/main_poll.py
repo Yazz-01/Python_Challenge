@@ -6,7 +6,7 @@ import operator
 
 
 # Set path for reading a file
-csv_poll = os.path.join("PyPoll","Resources","election_data.csv")
+csv_poll = os.path.join(".","Resources","election_data.csv")
 
 # Open the CSV
 with open(csv_poll, 'r') as csvfile:
@@ -41,7 +41,7 @@ with open(csv_poll, 'r') as csvfile:
         cand_votes_counts[candidate]=cand_votes_counts.get(candidate,0)+ 1
         
 # The percentage of votes each candidate won 
-# Set precision
+
         
         perctg_votes=[(k,round(v/total_votes*100,4)) for k,v in cand_votes_counts.items()]
         
@@ -55,18 +55,12 @@ with open(csv_poll, 'r') as csvfile:
     print(f'{winner}')
 
 
-
+with open("Output/newpypoll.txt", 'w', newline='') as txtfile:
 # # Open the file using "write" mode. Specify the variable to hold the contents
-    output_file = open(os.path.join("Election Analysis","pypoll_election","new.csv", 'w', newline='') as csvfile:
-
-#     # Initialize csv.writer
-    
-#     # Write the first row (column headers)
-    output_file.write(['Election Results'])
-    output_file.write(['-----------------------'])
-#     # Write the second row
-    output_file.write(['Total Votes: {total_votes}'])
-    output_file.write(['Total Votes: {candidates}'])
-    output_file.write(['Total Votes per candidate: %{cand_votes_counts}'])
-    output_file.write(['Winner: {winner}'])
+   
+    txtfile.write(f'Total Votes: {total_votes}\n')
+    txtfile.write('Total Votes: {total_votes}\n')
+    txtfile.write(f'Total Votes: {candidates}\n')
+    txtfile.write(f'Total Votes per candidate: %{cand_votes_counts}\n')
+    txtfile.write(f'Winner: {winner}\n')
     
