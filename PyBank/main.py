@@ -3,7 +3,7 @@ import csv
 import statistics
 
 # Set path for reading a file
-csv_bank = os.path.join("PyBank","Resources","bank.csv")
+csv_bank = os.path.join(".","Resources","bank.csv")
 
 # Open the CSV
 with open(csv_bank, newline='') as csvfile:
@@ -63,18 +63,19 @@ with open(csv_bank, newline='') as csvfile:
                 great_decrease_prof =changes_profit
                 great_decrease_date= row[0]
                 
-output_path=os.path.join("output", "new.csv")   
+output_path=os.path.join("Output", "new.txt")   
 # Open the file using "write" mode. Specify the variable to hold the contents
-with open(output_path, 'w') as csvfile:
+with open(output_path, 'w') as txtfile:
 
 # #     # Initialize csv.writer
-     csvwriter = csv.writer(csvfile, delimiter=',')
+     #csvwriter = csv.writer(csvfile, delimiter=',')
 
 # #     # Write the first row (column headers)
-     csvwriter.writerow(['Financial Analysis'])
-     csvwriter.writerow(['---------------------------'])
-     csvwriter.writerow(['Total Months: {total_monmths}'])
-     csvwriter.writerow(['Total: ${net_profit}'])
-     csvwriter.writerow(['Average Change: ${changes_profit}'])
-     csvwriter.writerow(['Greatest Increase in Profits: {great_increase_date} (${great_increase_prof})'])
-     csvwriter.writerow(['Greatest Decrease in Profits: {great_decrease_date} (${great_decrease_prof})'])
+    txtfile.write(f'\n')
+    txtfile.write(f'Financial Analysis\n')
+    txtfile.write(f'---------------------------\n')
+    txtfile.write(f'Total Months: {total_months}\n')
+    txtfile.write(f'Total: ${net_profit}\n')
+    txtfile.write(f'Average Change: ${changes_profit}\n')
+    txtfile.write(f'Greatest Increase in Profits: {great_increase_date} (${great_increase_prof})\n')
+    txtfile.write(f'Greatest Decrease in Profits: {great_decrease_date} (${great_decrease_prof})\n')

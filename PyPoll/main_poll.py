@@ -48,19 +48,27 @@ with open(csv_poll, 'r') as csvfile:
 # Get the winner from the election
         winner= max(cand_votes_counts, key=cand_votes_counts.get)
         
-    print(f'{total_votes} ')     
-    print(f'{candidates}')
-    print(f'{cand_votes_counts}')
-    print(f'{perctg_votes}')
-    print(f'{winner}')
+print(f'{total_votes} ')     
+print(f'{candidates}')
+print(f'{cand_votes_counts}')
+print(f'{perctg_votes}')
+print(f'{winner}')
 
 
+
+O="O'Tooley"
 with open("Output/newpypoll.txt", 'w', newline='') as txtfile:
 # # Open the file using "write" mode. Specify the variable to hold the contents
-   
+    txtfile.write(f'\n')
+    txtfile.write(f'Election Results\n')
+    txtfile.write(f'---------------------------\n')
     txtfile.write(f'Total Votes: {total_votes}\n')
-    txtfile.write('Total Votes: {total_votes}\n')
-    txtfile.write(f'Total Votes: {candidates}\n')
-    txtfile.write(f'Total Votes per candidate: %{cand_votes_counts}\n')
+    txtfile.write(f'---------------------------\n')
+    txtfile.write(f'Khan: {perctg_votes[0][1]}%  {cand_votes_counts ["Khan"]}\n')
+    txtfile.write(f'Correy: {perctg_votes[1][1]}% {cand_votes_counts ["Correy"]}\n')
+    txtfile.write(f'Li: {perctg_votes[2][1]}% {cand_votes_counts ["Li"]}\n')
+    txtfile.write(f'{O} {perctg_votes[3][1]}% {cand_votes_counts [O]} \n ')
+    txtfile.write(f'---------------------------\n')
     txtfile.write(f'Winner: {winner}\n')
+    txtfile.write(f'---------------------------\n')
     
